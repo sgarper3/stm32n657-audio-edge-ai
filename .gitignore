@@ -1,0 +1,55 @@
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE user settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+~$*
+
+# STM32CubeIDE / generated build output
+**/Debug/
+**/Release/
+**/build/
+**/.metadata/
+
+# Local datasets (download from the official sources documented in README files)
+ESC-50-master/
+UrbanSound8K/
+
+# Local development / persistent training workspaces
+siren_training_persistent_state/
+TFM_model_release_v1_siren_detector/
+
+# Original third-party pretrained model (referenced from the official ST repository)
+miniresnetv1_s1_64x50_tl.keras
+
+# Intermediate compatibility export not retained in the public repository
+miniresnetv1_s1_64x50_siren_final_legacy.h5
+
+# Large regenerated prediction / diagnostic artifacts intentionally excluded
+predictions_fold*.csv
+post_training_fold_predictions.csv
+post_training_final_model_all_predictions.csv
+post_training_false_positives.csv
+post_training_false_negatives.csv
+threshold_sweep_final_training_data.csv
+snr_predictions.csv
+snr_run_summary.json

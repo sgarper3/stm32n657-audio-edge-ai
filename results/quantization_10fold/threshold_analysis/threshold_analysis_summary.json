@@ -1,0 +1,22 @@
+{
+  "source": "10-fold out-of-fold predictions from per-fold fully-int8 TFLite models",
+  "n_samples": 31282,
+  "roc_auc": 0.9269969473643835,
+  "average_precision": 0.7342678397938335,
+  "deployed_threshold": 0.8,
+  "deployed_threshold_metrics": {
+    "accuracy": 0.935106450994182,
+    "precision": 0.7799930045470445,
+    "recall": 0.6141558799228862,
+    "f1": 0.687211093990755,
+    "auc": 0.9269969473643835,
+    "tn": 27022,
+    "fp": 629,
+    "fn": 1401,
+    "tp": 2230
+  },
+  "best_f1_threshold": 0.69,
+  "best_f1": 0.6934600979544799,
+  "best_f1_precision": 0.7269707037148898,
+  "best_f1_recall": 0.6629027816028642
+}

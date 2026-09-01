@@ -1,0 +1,42 @@
+{
+  "keras_model": "/content/drive/MyDrive/Colab Notebooks/TFM/Versiones_finales/miniresnet_siren/TFM_model_release_v1_siren_detector/models/miniresnetv1_s1_64x50_siren_final.keras",
+  "h5_model": "/content/drive/MyDrive/Colab Notebooks/TFM/Versiones_finales/miniresnet_siren/TFM_model_release_v1_siren_detector/models/miniresnetv1_s1_64x50_siren_final_legacy.h5",
+  "tflite_model": "/content/drive/MyDrive/Colab Notebooks/TFM/Versiones_finales/miniresnet_siren/TFM_model_release_v1_siren_detector/models/miniresnetv1_s1_64x50_siren_final_float32.tflite",
+  "keras_output": [
+    0.995785117149353
+  ],
+  "h5_output": [
+    0.995785117149353
+  ],
+  "tflite_output": [
+    0.995785117149353
+  ],
+  "abs_error_keras_h5": [
+    0.0
+  ],
+  "abs_error_keras_tflite": [
+    0.0
+  ],
+  "tflite_input_details": [
+    {
+      "name": "serving_default_input_1:0",
+      "shape": [
+        1,
+        64,
+        50,
+        1
+      ],
+      "dtype": "<class 'numpy.float32'>"
+    }
+  ],
+  "tflite_output_details": [
+    {
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        1
+      ],
+      "dtype": "<class 'numpy.float32'>"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slice_file_name": "102853-8-0-0.wav",
+  "filepath": "/content/drive/MyDrive/Colab Notebooks/TFM/Versiones_finales/miniresnet_siren/UrbanSound8K/audio/fold7/102853-8-0-0.wav",
+  "fold": 7,
+  "original_class": "siren",
+  "label_index": 1,
+  "label_name": "siren",
+  "export_class": "siren",
+  "real_frames_before_padding": 51,
+  "colab_prob_siren": 0.995785117149353,
+  "colab_predicted_index": 1,
+  "colab_predicted_label": "siren",
+  "threshold": 0.5,
+  "input_shape": [
+    1,
+    64,
+    50,
+    1
+  ],
+  "n_input_values": 3200
+}

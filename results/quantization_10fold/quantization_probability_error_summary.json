@@ -1,0 +1,10 @@
+{
+  "n_samples": 31282,
+  "mean_abs_probability_error": 0.009061986875860876,
+  "median_abs_probability_error": 0.0018723092507570982,
+  "p95_abs_probability_error": 0.04674462229013439,
+  "max_abs_probability_error": 0.19641494750976562,
+  "pearson_correlation": 0.9977167969563676,
+  "decision_changes_threshold_0_50": 280,
+  "decision_changes_threshold_0_80": 126
+}

@@ -1,0 +1,135 @@
+ST Edge AI Core v2.2.0-20266 2adc00962
+Created date          : 2026-07-02 12:28:36
+Parameters            : generate --target stm32n6 --name network -m C:/Users/sergi/Downloads/miniresnetv1_s1_64x50_siren_final_int8.tflite --st-neural-art n6-allmems-O2-Resnet_no-pools@C:/Users/sergi/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/10.2.0/scripts/N6_scripts/user_neuralart.json --workspace C:/Users/sergi/AppData/Local/Temp/mxAI_workspace8850007953300013557022132499044422 --output C:/Users/sergi/.stm32cubemx/network_output
+
+Model name - miniresnetv1_s1_64x50_siren_final_int8
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+m_id   layer (original)              oshape                 param/size             macc               connected to 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+0      serving_default_input_10 ()   [b:1,h:64,w:50,c:1]                                                           
+       pad_0 (PAD)                   [b:1,h:70,w:56,c:1]                                  serving_default_input_10 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+1      conv2d_1 (CONV_2D)            [b:1,h:32,w:25,c:64]   3,200/3,392       2,508,864                      pad_0 
+       nl_1_nl (CONV_2D)             [b:1,h:32,w:25,c:64]                        51,200                   conv2d_1 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+2      pad_2 (PAD)                   [b:1,h:34,w:27,c:64]                                                  nl_1_nl 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+3      pool_3 (MAX_POOL_2D)          [b:1,h:16,w:13,c:64]                       119,808                      pad_2 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+4      conv2d_4 (CONV_2D)            [b:1,h:8,w:7,c:64]     4,160/4,352         229,440                     pool_3 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+5      conv2d_5 (CONV_2D)            [b:1,h:8,w:7,c:64]     4,160/4,352         229,440                     pool_3 
+       nl_5_nl (CONV_2D)             [b:1,h:8,w:7,c:64]                           3,584                   conv2d_5 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+6      conv2d_6 (CONV_2D)            [b:1,h:8,w:7,c:64]     36,928/37,120     2,064,448                    nl_5_nl 
+       nl_6_nl (CONV_2D)             [b:1,h:8,w:7,c:64]                           3,584                   conv2d_6 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+7      eltwise_7 (ADD)               [b:1,h:8,w:7,c:64]                           3,584                   conv2d_4 
+                                                                                                           nl_6_nl 
+       nl_7_nl (ADD)                 [b:1,h:8,w:7,c:64]                           3,584                  eltwise_7 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+8      conv2d_8 (CONV_2D)            [b:1,h:8,w:7,c:64]     4,160/4,352         229,440                    nl_7_nl 
+       nl_8_nl (CONV_2D)             [b:1,h:8,w:7,c:64]                           3,584                   conv2d_8 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+9      conv2d_9 (CONV_2D)            [b:1,h:8,w:7,c:64]     36,928/37,120     2,064,448                    nl_8_nl 
+       nl_9_nl (CONV_2D)             [b:1,h:8,w:7,c:64]                           3,584                   conv2d_9 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+10     eltwise_10 (ADD)              [b:1,h:8,w:7,c:64]                           3,584                    nl_7_nl 
+                                                                                                           nl_9_nl 
+       nl_10_nl (ADD)                [b:1,h:8,w:7,c:64]                           3,584                 eltwise_10 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+14     reshape_14 (RESHAPE)          [b:1,c:3584]                                                         nl_10_nl 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+15     tfl_pseudo_qconst1 ()         [b:1,c:3584]           3,584/3,584                                            
+       tfl_pseudo_qconst ()          [b:1]                  1/4                                                    
+       gemm_15 (FULLY_CONNECTED)     [b:1,c:1]                                    3,585                 reshape_14 
+                                                                                                tfl_pseudo_qconst1 
+                                                                                                 tfl_pseudo_qconst 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+16     nl_16 (LOGISTIC)              [b:1,c:1]                                       10                    gemm_15 
+------ ----------------------------- ---------------------- --------------- ----------- -------------------------- 
+model: macc=7,529,355 weights=94,276 activations=-- io=--
+
+
+
+
+
+Compilation details
+------------------------------------------------------------------------------------
+Compiler version: 1.1.1-14
+Compiler arguments:  -i C:\Users\sergi\.stm32cubemx\network_output\miniresnetv1_s1_64x50_siren_final_int8_OE_3_3_0.onnx --json-quant-file C:\Users\sergi\.stm32cubemx\network_output\miniresnetv1_s1_64x50_siren_final_int8_OE_3_3_0_Q.json -g network.c --load-mdesc C:\Users\sergi\STM32Cube\Repository\Packs\STMicroelectronics\X-CUBE-AI\10.2.0\Utilities\configs\stm32n6.mdesc --load-mpool C:\Users\sergi\STM32Cube\Repository\Packs\STMicroelectronics\X-CUBE-AI\10.2.0\scripts\N6_scripts\my_mpools\stm32n6.mpool --save-mpool-file C:\Users\sergi\AppData\Local\Temp\mxAI_workspace8850007953300013557022132499044422\neural_art__network\stm32n6.mpool --out-dir-prefix C:\Users\sergi\AppData\Local\Temp\mxAI_workspace8850007953300013557022132499044422\neural_art__network/ --optimization 2 --Opreserve-inputs --all-buffers-info --mvei --cache-maintenance --Oauto-sched --native-float --Omax-ca-pipe 4 --Ocache-opt --output-info-file c_info.json
+====================================================================================
+
+Memory usage information  (input/output buffers are included in activations)
+------------------------------------------------------------------------------------
+	flexMEM    [0x34000000 - 0x34000000]:          0  B /          0  B  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	cpuRAM1    [0x34064000 - 0x34064000]:          0  B /          0  B  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	cpuRAM2    [0x34100000 - 0x34200000]:          0  B /      1.000 MB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM3    [0x34200000 - 0x34270000]:          0  B /    448.000 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM4    [0x34270000 - 0x342E0000]:          0  B /    448.000 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM5    [0x342E0000 - 0x34350000]:    253.125 kB /    448.000 kB  ( 56.50 % used) -- weights:          0  B (  0.00 % used)  activations:    253.125 kB ( 56.50 % used)
+	npuRAM6    [0x34350000 - 0x343C0000]:          0  B /    448.000 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	octoFlash  [0x71000000 - 0x78000000]:     93.110 kB /    112.000 MB  (  0.08 % used) -- weights:     93.110 kB (  0.08 % used)  activations:          0  B (  0.00 % used)
+	hyperRAM   [0x90000000 - 0x92000000]:          0  B /     32.000 MB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+---
+Total:                                           346.235 kB                                  -- weights:     93.110 kB                  activations:    253.125 kB                   
+====================================================================================
+
+
+Used memory ranges
+------------------------------------------------------------------------------------
+	npuRAM5    [0x342E0000 - 0x34350000]: 0x342E0000-0x3431F480
+	octoFlash  [0x71000000 - 0x78000000]: 0x71000000-0x71017480
+====================================================================================
+
+Epochs details
+------------------------------------------------------------------------------------
+Total number of epochs: 14 of which 0 implemented in software
+---
+epoch ID   HW/SW/EC Operation (SW only)
+epoch 1       HW    
+epoch 2       HW    
+epoch 3       HW    
+epoch 4       HW    
+epoch 5       HW    
+epoch 6       HW    
+epoch 7       HW    
+epoch 8       HW    
+epoch 9       HW    
+epoch 10      HW    
+epoch 11      HW    
+epoch 12      HW    
+epoch 13      HW    
+epoch 14      HW    
+==================================================================================== 
+ Requested memory size by section - "stm32n6npu" target
+ ------------------------------- ------- --------- ------ --------- 
+ module                             text    rodata   data       bss 
+ ------------------------------- ------- --------- ------ --------- 
+ network.o                         2,272    19,788      0         0 
+ ll_aton_reloc_network.o               0         0      0         0 
+ NetworkRuntime1020_CM55_GCC.a         0         0      0         0 
+ lib (toolchain)*                      0         0      0         0 
+ ll atonn runtime                  6,598     7,563      0        29 
+ ------------------------------- ------- --------- ------ --------- 
+ RT total**                        8,870    27,351      0        29 
+ ------------------------------- ------- --------- ------ --------- 
+ weights                               0    95,345      0         0 
+ activations                           0         0      0   259,200 
+ io                                    0         0      0         0 
+ ------------------------------- ------- --------- ------ --------- 
+ TOTAL                             8,870   122,696      0   259,229 
+ ------------------------------- ------- --------- ------ --------- 
+ *  toolchain objects (libm/libgcc*)
+ ** RT AI runtime objects (kernels+infrastructure)
+  
+  Summary - "stm32n6npu" target
+  --------------------------------------------------
+               FLASH (ro)      %*   RAM (rw)      % 
+  --------------------------------------------------
+  RT total         36,221   27.5%         29   0.0% 
+  --------------------------------------------------
+  TOTAL           131,566            259,229        
+  --------------------------------------------------
+  *  rt/total
+

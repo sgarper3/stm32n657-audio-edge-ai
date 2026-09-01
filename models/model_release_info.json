@@ -1,0 +1,25 @@
+{
+  "release_name": "TFM_model_release_v1_siren_detector",
+  "release_date": "2026-06-16 16:39:04",
+  "model_file": "/content/drive/MyDrive/Colab Notebooks/TFM/Versiones_finales/miniresnet_siren/TFM_model_release_v1_siren_detector/models/miniresnetv1_s1_64x50_siren_final.keras",
+  "input_shape": [
+    null,
+    64,
+    50,
+    1
+  ],
+  "output_shape": [
+    null,
+    1
+  ],
+  "task": "Binary siren detection",
+  "classes": {
+    "0": "non_siren",
+    "1": "siren"
+  },
+  "recommended_initial_threshold": 0.8,
+  "input_format": "log-Mel spectrogram, 64 x 50 x 1, float32",
+  "model_origin": "Transfer learning from MiniResNetV1 ESC-10 model",
+  "dataset": "UrbanSound8K",
+  "validation": "Official UrbanSound8K 10-fold validation, train on 9 folds and test on the remaining fold"
+}

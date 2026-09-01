@@ -1,0 +1,23 @@
+{
+  "model_path": "/content/drive/MyDrive/Colab Notebooks/TFM/Versiones_finales/miniresnet_siren/TFM_model_release_v1_siren_detector/models/miniresnetv1_s1_64x50_siren_final_int8.tflite",
+  "input_dtype": "<class 'numpy.int8'>",
+  "input_shape": [
+    1,
+    64,
+    50,
+    1
+  ],
+  "input_scale": 0.3137255012989044,
+  "input_zero_point": 127,
+  "output_dtype": "<class 'numpy.int8'>",
+  "output_shape": [
+    1,
+    1
+  ],
+  "output_scale": 0.00390625,
+  "output_zero_point": -128,
+  "test_input_keras_float32_prob_siren": 0.995785117149353,
+  "test_input_raw_output_int8": 126,
+  "test_input_int8_dequant_prob_siren": 0.9921875,
+  "test_input_abs_error_vs_keras": 0.0035976171493530273
+}

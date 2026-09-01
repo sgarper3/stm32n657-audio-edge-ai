@@ -1,0 +1,16 @@
+{
+  "evaluation": "10-fold out-of-fold robustness evaluation of fully-int8 TFLite models",
+  "threshold": 0.8,
+  "noise": "additive white Gaussian noise (AWGN)",
+  "snr_db": [
+    "clean",
+    20,
+    10,
+    5,
+    0
+  ],
+  "noise_injection_stage": "temporal audio before log-Mel preprocessing",
+  "n_windows": 31282,
+  "n_total_inferences": 156410,
+  "no_data_augmentation_during_training": true
+}
